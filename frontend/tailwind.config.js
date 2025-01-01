@@ -24,6 +24,11 @@ module.exports = {
   },
   theme: {
     extend: {
+      extend: {
+        spacing: {
+          'btn-lg': '3rem', // Example: Custom height/width
+        },
+      },
       fontFamily: {
         'open-sans': ['Open Sans', 'sans-serif'],
         raleway: ['Raleway', 'sans-serif'],
@@ -270,8 +275,10 @@ module.exports = {
         '28-8H': '1.8rem',
         '73.6H': '4.6rem',
         '80H': '5rem',
+        '90H': '6rem',
         '100H': '6.25rem',
         '128H': '8rem',
+        '144H': '9rem',
         '160H': '10rem',
         '200H': '12.5rem',
         '208H': '13rem',
