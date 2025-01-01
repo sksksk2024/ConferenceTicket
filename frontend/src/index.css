@@ -44,7 +44,13 @@ img {
   --orange-500: hsl(7, 88%, 67%);
   --orange-700: hsl(7, 71%, 60%);
 
-  --gradient: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
+  --ticket-gradient: linear-gradient(
+    to left,
+    hsl(7, 86%, 67%),
+    hsl(0, 0%, 100%)
+  );
+
+  /* --gradient: hsl(7, 86%, 67%) to hsl(0, 0%, 100%); */
 }
 /* Styles */
 html,
