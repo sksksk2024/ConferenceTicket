@@ -318,6 +318,7 @@ module.exports = {
       margin: {
         socialM: '-4rem',
         '1.6M': '0.1rem',
+        '4M': '0.25rem',
         '8M': '0.5rem',
         '10M': '0.625rem',
         '16M': '1rem',

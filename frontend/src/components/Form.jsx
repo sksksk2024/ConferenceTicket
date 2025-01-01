@@ -5,8 +5,11 @@ const Form = () => {
   return (
     <form className="flex flex-col justify-center items-center gap-6 max-w-container-xs">
       {/* Image Input */}
-      <div className="flex flex-col gap-2 text-lg w-[28vw]">
-        <label htmlFor="upload_avatar" className="text-neutral-0">
+      <div className="mt-32M relative flex flex-col gap-2 text-lg min-w-container-200 w-[90vw] max-w-container-500">
+        <label
+          htmlFor="upload_avatar"
+          className="absolute left-0 -top-32I text-neutral-0"
+        >
           Upload Avatar
         </label>
         <label
@@ -24,15 +27,18 @@ const Form = () => {
             required
           />
         </label>
-        <p className="flex gap-2 text-xs text-neutral-300 mt-16M mb-32M">
+        <p className="flex gap-2 text-xs text-neutral-300 mt-4M">
           <img src={Info} alt="info point" />
           Upload your photo (JPG or PNG, max size: 500KB).
         </p>
       </div>
 
       {/* Full Name */}
-      <div className="flex flex-col gap-2 text-lg w-[28vw]">
-        <label htmlFor="full_name" className="text-neutral-0">
+      <div className="mt-32M relative flex flex-col gap-2 text-lg min-w-container-200 w-[90vw] max-w-container-500">
+        <label
+          htmlFor="full_name"
+          className="absolute left-0 -top-32I text-neutral-0"
+        >
           Full Name
         </label>
         <label
@@ -59,8 +65,11 @@ const Form = () => {
       </div>
 
       {/* Email */}
-      <div className="flex flex-col gap-2 text-lg w-[28vw]">
-        <label htmlFor="email" className="text-neutral-0">
+      <div className="mt-32M relative flex flex-col gap-2 text-lg min-w-container-200 w-[90vw] max-w-container-500">
+        <label
+          htmlFor="email"
+          className="absolute left-0 -top-32I text-neutral-0"
+        >
           Email Address
         </label>
         <label
@@ -89,8 +98,11 @@ const Form = () => {
       </div>
 
       {/* Github Username */}
-      <div className="flex flex-col gap-2 text-lg w-[28vw]">
-        <label htmlFor="github" className="text-neutral-0">
+      <div className="mt-32M relative flex flex-col gap-2 text-lg min-w-container-200 w-[90vw] max-w-container-500">
+        <label
+          htmlFor="github"
+          className="absolute left-0 -top-32I text-neutral-0"
+        >
           GitHub Username
         </label>
         <label
@@ -117,7 +129,7 @@ const Form = () => {
         </label>
       </div>
 
-      <button className="btn glass font-[800] text-neutral-900 text-lg w-[28vw] bg-orange-500 hover:bg-orange-700 rounded-10BR">
+      <button className="btn glass font-[800] text-neutral-900 text-lg min-w-container-200 w-[90vw] max-w-container-500 bg-orange-500 hover:bg-orange-700 rounded-10BR">
         Generate My Ticket
       </button>
     </form>

@@ -7,7 +7,7 @@ const Main = () => {
         Your Journey to Coding Conf 2025 Starts Here!
       </h1>
 
-      <p className="text-lg sm:text-xl text-neutral-300 mt-16M mb-32M">
+      <p className="text-lg sm:text-xl text-neutral-300 min-w-container-200 w-[90wh] max-w-container-700 mt-16M mb-32M">
         Secure your spot at next year's biggest coding conference.
       </p>
 
