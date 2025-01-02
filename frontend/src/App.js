@@ -10,17 +10,17 @@ function App() {
       {/* Backgrounds */}
       <img
         src={BgMobile}
-        className="block sm:hidden -z-30 absolute top-0 left-0 bottom-0 min-h-[120vh] w-screen"
+        className="block sm:hidden -z-30 absolute top-0 left-0 bottom-0 min-h-[2200dvh] w-screen"
         alt="background"
       />
       <img
         src={BgTablet}
-        className="hidden sm:block lg:hidden -z-20 absolute top-0 left-0 bottom-0 min-h-[120vh] w-screen"
+        className="hidden sm:block lg:hidden -z-20 absolute top-0 left-0 bottom-0 min-h-[2200dvh] w-screen"
         alt="background"
       />
       <img
         src={BgDesktop}
-        className="hidden lg:block -z-10 absolute top-0 left-0 bottom-0 min-h-[120vh] w-screen"
+        className="hidden lg:block -z-10 absolute top-0 left-0 w-full min-h-[2200dvh] object-cover"
         alt="background"
       />
       {/* App */}
