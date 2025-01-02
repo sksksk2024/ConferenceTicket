@@ -139,7 +139,12 @@ const Form = ({ onSubmit }) => {
     >
       {/* Image Input */}
       <div className="mt-4 relative flex flex-col gap-2 text-lg text-start w-full max-w-container-500">
-        <label htmlFor="upload_avatar" className="text-neutral-0">
+        <label
+          id="avatar-label"
+          aria-label="upload your avatar below"
+          htmlFor="file_input"
+          className="text-neutral-0"
+        >
           Upload Avatar
         </label>
         <div
