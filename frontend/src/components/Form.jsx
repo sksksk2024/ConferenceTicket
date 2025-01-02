@@ -3,13 +3,18 @@ import Upload from './../images/icon-upload.svg';
 import Info from './../images/icon-info.svg';
 import InfoError from './../images/icon-info-error.svg';
 
-const Form = ({ setIsFormComplete }) => {
+const Form = ({ onSubmit }) => {
   // Styling Image Input
   const [isHoveredImage, setIsHoveredImage] = useState(false);
 
   // Putting Image Functionality States
   const [uploadedImage, setUploadedImage] = useState(null);
   const [error, setError] = useState('');
+
+  // Putting Other Fields State
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [github, setGithub] = useState('');
 
   // Image Upload Function
   const handleImageUpload = (e) => {
@@ -48,7 +53,7 @@ const Form = ({ setIsFormComplete }) => {
       return;
     }
 
-    setIsFormComplete(true);
+    onSubmit({ fullName, email, github, image: uploadedImage });
   };
 
   return (
@@ -57,15 +62,14 @@ const Form = ({ setIsFormComplete }) => {
       onSubmit={handleSubmit}
     >
       {/* Image Input */}
-      <div className="mt-4 relative flex flex-col gap-2 text-lg w-full max-w-container-500">
+      <div className="mt-4 relative flex flex-col gap-2 text-lg text-start w-full max-w-container-500">
         <label htmlFor="upload_avatar" className="text-neutral-0">
           Upload Avatar
         </label>
         <div
           onMouseOver={() => setIsHoveredImage(!isHoveredImage)}
           onMouseOut={() => setIsHoveredImage(!isHoveredImage)}
-          className={`flex flex-col justify-center items-center input input-bordered h-144 border-2 border-dashed h-144H
-            ${error ? 'border-red-500' : 'border-neutral-500'}
+          className={`flex flex-col justify-center items-center input input-bordered h-144 border-2 border-dashed border-neutral-500 h-144H
           ${
             isHoveredImage && !uploadedImage && 'cursor-pointer bg-neutral-700'
           }`}
@@ -126,13 +130,13 @@ const Form = ({ setIsFormComplete }) => {
           onChange={handleImageUpload}
         />
         {error && (
-          <p className="text-xs text-red-500 mt-2">
+          <p className="flex gap-2 text-xs text-red-500 mt-2">
             <img src={InfoError} alt="Error Info" className="inline-block" />
             {error}
           </p>
         )}
         {!error && !uploadedImage && (
-          <p className="text-xs text-neutral-300 mt-2">
+          <p className="flex gap-2 text-xs text-neutral-300 mt-2">
             <img src={Info} alt="Info" className="inline-block" />
             Upload your photo (JPG or PNG, max size: 500KB).
           </p>
@@ -149,6 +153,8 @@ const Form = ({ setIsFormComplete }) => {
         </label>
         <input
           id="full_name"
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
           type="text"
           min={1}
           max={20}
@@ -167,6 +173,8 @@ const Form = ({ setIsFormComplete }) => {
         </label>
         <input
           id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           type="email"
           min={1}
           max={20}
@@ -190,6 +198,8 @@ const Form = ({ setIsFormComplete }) => {
         </label>
         <input
           id="github"
+          value={github}
+          onChange={(e) => setGithub(e.target.value)}
           type="text"
           min={1}
           max={20}

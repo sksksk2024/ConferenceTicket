@@ -1,8 +1,8 @@
 import Circles from './../images/logo-mark.svg';
-import Jonatan from './../images/image-avatar.jpg';
+// import Jonatan from './../images/image-avatar.jpg';
 import Github from './../images/icon-github.svg';
 
-const Card = () => {
+const Card = ({ userInfo }) => {
   return (
     <section
       className="flex justify-between items-center relative transform -rotate-90 sm:rotate-0 my-96M sm:my-0"
@@ -27,15 +27,17 @@ const Card = () => {
 
           <div className="flex justify-start items-center gap-4">
             <img
-              src={Jonatan}
+              src={userInfo.image}
               className="w-48W w-[100vw] max-w-container-100 mt-3 rounded-10BR"
-              alt="Coding Conf Circles"
+              alt={`${userInfo.fullName}'s Avatar`}
             />
             <div className="flex flex-col justify-start items-start">
-              <h2 className="text-neutral-0 text-2xl mb-1">Jonatan Kristof</h2>
+              <h2 className="text-neutral-0 text-2xl mb-1">
+                {userInfo.fullName}
+              </h2>
               <p className="flex gap-2">
                 <img src={Github} alt="Github" />
-                @sksksk2025
+                {userInfo.github}
               </p>
             </div>
           </div>
