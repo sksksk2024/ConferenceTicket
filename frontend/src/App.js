@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import Ticket from './components/Ticket';
@@ -6,6 +7,8 @@ import BgTablet from './images/background-tablet.png';
 import BgDesktop from './images/background-desktop.png';
 
 function App() {
+  const [isFormComplete, setIsFormComplete] = useState(false);
+
   return (
     <>
       {/* Backgrounds */}
@@ -27,9 +30,11 @@ function App() {
       {/* App */}
       <Header />
 
-      <Main />
-
-      {/* <Ticket /> */}
+      {isFormComplete ? (
+        <Ticket />
+      ) : (
+        <Main setIsFormComplete={setIsFormComplete} />
+      )}
     </>
   );
 }

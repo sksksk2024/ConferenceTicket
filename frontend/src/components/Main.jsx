@@ -1,6 +1,6 @@
 import Form from './Form';
 
-const Main = () => {
+const Main = ({ setIsFormComplete }) => {
   return (
     <main className="flex flex-col justify-center items-center text-center mt-64M">
       <h1 className="font-bold text-2xl sm:text-4xl leading-xs-tight text-neutral-0 max-w-container-sm">
@@ -11,7 +11,7 @@ const Main = () => {
         Secure your spot at next year's biggest coding conference.
       </p>
 
-      <Form />
+      <Form setIsFormComplete={setIsFormComplete} />
     </main>
   );
 };
