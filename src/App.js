@@ -10,21 +10,21 @@ function App() {
       {/* Backgrounds */}
       <img
         src={BgMobile}
-        aria-label="mobile background"
         className="block sm:hidden -z-30 absolute top-0 left-0 bottom-0 min-h-[2200dvh] w-screen"
-        alt="background mobile"
+        alt=""
+        aria-hidden="true"
       />
       <img
         src={BgTablet}
-        aria-label="tablet background"
         className="hidden sm:block lg:hidden -z-20 absolute top-0 left-0 bottom-0 min-h-[2200dvh] w-screen"
-        alt="background tablet"
+        alt=""
+        aria-hidden="true"
       />
       <img
         src={BgDesktop}
-        aria-label="desktop background"
         className="hidden lg:block -z-10 absolute top-0 left-0 w-full min-h-[2200dvh] object-cover"
-        alt="background desktop"
+        alt=""
+        aria-hidden="true"
       />
       {/* App */}
       <Header />

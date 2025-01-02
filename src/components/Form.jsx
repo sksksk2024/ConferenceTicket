@@ -237,8 +237,8 @@ const Form = ({ onSubmit }) => {
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           type="text"
-          min={1}
-          max={20}
+          minLength={1}
+          maxLength={20}
           className="peer grow input input-bordered border-2 border-neutral-500 focus:invalid:border-orange-700 invalid:text-orange-700 cursor-pointer hover:bg-neutral-700"
           required
         />
@@ -257,8 +257,8 @@ const Form = ({ onSubmit }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="email"
-          min={1}
-          max={20}
+          minLength={1}
+          maxLength={20}
           className="peer grow input input-bordered border-2 border-neutral-500 focus:invalid:border-orange-700 invalid:text-orange-700 cursor-pointer hover:bg-neutral-700"
           placeholder="example@email.com"
           required
@@ -288,8 +288,8 @@ const Form = ({ onSubmit }) => {
           value={github}
           onChange={(e) => setGithub(e.target.value)}
           type="text"
-          min={1}
-          max={20}
+          minLength={1}
+          maxLength={20}
           className="peer grow input input-bordered border-2 border-neutral-500 focus:invalid:border-orange-700 invalid:text-orange-700 cursor-pointer hover:bg-neutral-700"
           placeholder="@yourusername"
           required
