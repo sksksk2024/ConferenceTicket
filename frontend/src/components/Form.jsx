@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
 import Upload from './../images/icon-upload.svg';
 import Info from './../images/icon-info.svg';
 import InfoError from './../images/icon-info-error.svg';
@@ -92,8 +93,47 @@ const Form = ({ onSubmit }) => {
     onSubmit({ fullName, email, github, image: uploadedImage });
   };
 
+  // GSAP Animation
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const formElement = formRef.current;
+    if (!formElement) return; // Exit if formElement is null
+
+    gsap.fromTo(
+      formElement,
+      {
+        y: -50,
+        opacity: 0, // Starting state: fully transparent
+      },
+      {
+        y: 0, // Ending state: back to original position
+        opacity: 1, // Ending state: fully opaque
+        duration: 2, // Transition duration in seconds
+        ease: 'power3.out',
+        clearProps: 'all', // Removes inline styles after animation
+      }
+    );
+
+    // Cleanup function to kill the animation
+    return () => {
+      gsap.killTweensOf(formElement);
+    };
+  }, []);
+
+  const handleButtonClick = (e) => {
+    gsap.to(e.target, {
+      scale: 1.1,
+      duration: 0.1,
+      ease: 'power1.inOut',
+      yoyo: true,
+      repeat: 1,
+    });
+  };
+
   return (
     <form
+      ref={formRef}
       className="flex flex-col justify-center items-center gap-6 max-w-container-xs"
       onSubmit={handleSubmit}
     >
@@ -258,6 +298,7 @@ const Form = ({ onSubmit }) => {
       </div>
 
       <button
+        onClick={handleButtonClick}
         type="submit"
         className="btn glass font-[800] text-neutral-900 text-lg min-w-container-200 w-[90vw] max-w-container-500 bg-orange-500 hover:bg-orange-700 rounded-10BR"
       >

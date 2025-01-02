@@ -13,7 +13,7 @@ const Card = ({ userInfo }) => {
         borderRadius: '1rem', // Optional, for rounded borders
       }}
     >
-      <div className="flex justify-between items-center gap-4 bg-neutral-900 min-w-container-500 w-[100vw] max-w-container-600 h-[280px] p-16P rounded-[1rem]">
+      <div className="flex justify-between items-center gap-4 bg-neutral-900 min-w-container-500 w-[100vw] max-w-container-600 h-[17.5rem] p-16P rounded-[1rem]">
         <div className="flex flex-col justify-between items-start">
           <div className="flex justify-start items-start gap-4">
             <img src={Circles} className="mt-3" alt="Coding Conf Circles" />
@@ -45,7 +45,7 @@ const Card = ({ userInfo }) => {
 
         {/* Number of Ticket */}
         <div className="relative bg-neutral-900">
-          <div className="z-0 border-l-2 border-dashed bg-neutral-900 w-16 h-[280px]"></div>
+          <div className="z-0 border-l-2 border-dashed bg-neutral-900 w-16 h-[17.5rem]"></div>
 
           <p className="absolute top-[40%] left-[20%] transform rotate-90 text-neutral-500 text-xl z-50">
             #{Math.ceil(Math.random() * 100000)}
