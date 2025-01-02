@@ -16,6 +16,16 @@ const Form = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [github, setGithub] = useState('');
 
+  // Form Errors(when email and github username are not correctly typed)
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+    github: '',
+  });
+
+  // Regular Expressions(regex)
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const githubRegex = /^@([A-Za-z0-9-]+)$/;
+
   // Image Upload Function
   const handleImageUpload = (e) => {
     const file = e.target.files ? e.target.files[0] : e.dataTransfer.files[0];
@@ -48,11 +58,37 @@ const Form = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    let hasErrors = false;
+    const errors = {};
+
+    // Email Validation
+    if (!emailRegex.test(email)) {
+      errors.email = 'Please enter a valid email address. Nice try though 😏';
+      hasErrors = true;
+    }
+
+    // Github Username Validation
+    if (!githubRegex.test(github)) {
+      errors.github = 'Github username must start with "@" and be valid';
+      hasErrors = true;
+    }
+
+    // Image Validation
     if (!uploadedImage) {
       setError('Please upload an avatar before submitting the form.');
+      hasErrors = true;
+    }
+
+    // If there are errors, set them and prevent form submission
+    if (hasErrors) {
+      setFormErrors(errors);
       return;
     }
 
+    // Reset form errors if everything is fine
+    setFormErrors({ email: '', github: '' });
+
+    // Proceed with form submission
     onSubmit({ fullName, email, github, image: uploadedImage });
   };
 
@@ -67,8 +103,8 @@ const Form = ({ onSubmit }) => {
           Upload Avatar
         </label>
         <div
-          onMouseOver={() => setIsHoveredImage(!isHoveredImage)}
-          onMouseOut={() => setIsHoveredImage(!isHoveredImage)}
+          onMouseOver={() => setIsHoveredImage(true)}
+          onMouseOut={() => setIsHoveredImage(false)}
           className={`flex flex-col justify-center items-center input input-bordered h-144 border-2 border-dashed border-neutral-500 h-144H
           ${
             isHoveredImage && !uploadedImage && 'cursor-pointer bg-neutral-700'
@@ -182,6 +218,12 @@ const Form = ({ onSubmit }) => {
           placeholder="example@email.com"
           required
         />
+        {formErrors.email && (
+          <p className="flex gap-2 text-xs text-red-500 mt-2">
+            <img src={InfoError} className="inline-block" alt="Error Info" />
+            {formErrors.email}
+          </p>
+        )}
         <div className="peer-invalid:flex hidden justify-start items-center gap-2 text-orange-700">
           <img src={InfoError} alt="info point for email" />
           <p>Please enter a valid email address</p>
@@ -207,6 +249,12 @@ const Form = ({ onSubmit }) => {
           placeholder="@yourusername"
           required
         />
+        {formErrors.github && (
+          <p className="flex gap-2 text-xs text-red-500 mt-2">
+            <img src={InfoError} className="inline-block" alt="Error Info" />
+            {formErrors.github}
+          </p>
+        )}
       </div>
 
       <button

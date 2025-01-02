@@ -47,8 +47,8 @@ const Card = ({ userInfo }) => {
         <div className="relative bg-neutral-900">
           <div className="z-0 border-l-2 border-dashed bg-neutral-900 w-16 h-[280px]"></div>
 
-          <p className="absolute top-[40%] left-[25%] transform rotate-90 text-neutral-500 text-xl z-50">
-            #01609
+          <p className="absolute top-[40%] left-[20%] transform rotate-90 text-neutral-500 text-xl z-50">
+            #{Math.ceil(Math.random() * 100000)}
           </p>
         </div>
       </div>
