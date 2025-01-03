@@ -55,10 +55,23 @@ img {
 /* Styles */
 html,
 body {
-  min-height: 100vh;
-  width: 100vw;
+  min-height: 100dvh;
+  width: 100dvw;
   overflow-x: clip;
   overflow-y: scroll;
+  background-image: url('./images/background-mobile.png');
+}
+
+@media (min-width: 48em) {
+  body {
+    background-image: url('./images/background-desktop.png');
+  }
+}
+
+@media (min-width: 64em) {
+  body {
+    background-image: url('./images/background-desktop.png');
+  }
 }
 
 /* Loader */
